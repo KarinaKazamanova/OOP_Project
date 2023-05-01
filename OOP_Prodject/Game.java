@@ -9,16 +9,14 @@ public class Game {
         grog.attack(grog, mounk);
         mounk.speak();
         grog.toString();
-        Tank t = new Tank("Tank");
-        t.speedModifier(mounk);
-        System.out.println("Elf speed = " + mounk.getSpeed());
-        System.out.println("Grog: " + grog.getHealthPoints());
-        System.out.println("Mounk: " + mounk.getHealthPoints());
-        mounk.attack(mounk, grog);
-        grog.attack(grog, mounk);
-        System.out.println("Grog: " + grog.getHealthPoints());
-        System.out.println("Mounk: " + mounk.getHealthPoints());
-        grog.toString();
+        Tank t = new Tank();
+        t.modify(mounk);
+        Killer k = new Killer();
+
+        System.out.println("Elf-Tank\n" + mounk.toString());
+        k.modify(mounk);
+        System.out.println("Elf-Killer\n" + mounk.toString());
+
     }
 
 }

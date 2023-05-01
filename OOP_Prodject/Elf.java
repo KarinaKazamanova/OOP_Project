@@ -5,7 +5,7 @@ import java.util.Random;
 public class Elf extends Character {
 
     public Elf(String name) {
-        super(name, 120, 0, 1, 6, 120, 40, 4, 4, 5, 5);
+        super(name, 120, 0, 1, 6, 120, 40, 5, 5, 4, 4);
 
     }
 

@@ -1,20 +1,20 @@
 package OOP_Prodject;
 
 public class Profession {
-    protected String profession;
+    // protected String profession;
     protected Integer health_modifier;
     protected Integer attack_modifier;
     protected Integer speed_modifier;
     protected Integer mana_modifier;
     protected Integer resist_modifier;
 
-    public String getProfession() {
-        return profession;
-    }
+    // public String getProfession() {
+    // return profession;
+    // }
 
-    public void setProfession(String prof) {
-        this.profession = prof;
-    }
+    // public void setProfession(String prof) {
+    // this.profession = prof;
+    // }
 
     public Integer getHealthModifier() {
         return health_modifier;
@@ -56,9 +56,9 @@ public class Profession {
         this.resist_modifier = r_m;
     }
 
-    public Profession(String prof, Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
+    public Profession(/* String prof, */ Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
             Integer resist_m) {
-        this.profession = prof;
+        // this.profession = prof;
         this.health_modifier = health_m;
         this.attack_modifier = attack_m;
         this.speed_modifier = speed_m;
@@ -66,8 +66,8 @@ public class Profession {
         this.resist_modifier = resist_m;
     }
 
-    public Profession(String prof) {
-        this(prof, 0, 0, 0, 0, 0);
+    public Profession(/* String prof */) {
+        this(/* prof, */ 0, 0, 0, 0, 0);
     }
 
     public void healthModifier(Character c) {
@@ -100,6 +100,17 @@ public class Profession {
 
     public void maxResistanceModifier(Character c) {
         c.setMaxResist(c.getMaxResist() + this.resist_modifier);
+    }
+
+    public void modify(Character c) {
+        this.healthModifier(c);
+        this.maxHealthModifier(c);
+        this.attackModifier(c);
+        this.speedModifier(c);
+        this.manaModifier(c);
+        this.maxManaModifier(c);
+        this.resistanceModifier(c);
+        this.maxResistanceModifier(c);
     }
 
 }
