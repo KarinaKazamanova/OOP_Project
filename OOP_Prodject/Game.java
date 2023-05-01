@@ -9,6 +9,9 @@ public class Game {
         grog.attack(grog, mounk);
         mounk.speak();
         grog.toString();
+        Tank t = new Tank("Tank");
+        t.speedModifier(mounk);
+        System.out.println("Elf speed = " + mounk.getSpeed());
         System.out.println("Grog: " + grog.getHealthPoints());
         System.out.println("Mounk: " + mounk.getHealthPoints());
         mounk.attack(mounk, grog);

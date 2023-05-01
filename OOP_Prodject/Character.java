@@ -74,7 +74,7 @@ public class Character implements Attackable, Healable, Speakable {
         return max_mana;
     }
 
-    public void setMaxMana(Integer man_mana) {
+    public void setMaxMana(Integer max_mana) {
         this.max_mana = max_mana;
     }
 
@@ -95,27 +95,31 @@ public class Character implements Attackable, Healable, Speakable {
     }
 
     public Character(String name, Integer health_points, Integer exp, Integer level, Integer attack,
-            Integer max_health_points, Integer mana, Integer resistance, Integer max_resistance) {
+            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance,
+            Integer max_resistance) {
         this.name = name;
         this.health_points = health_points;
         this.experience_points = exp;
         this.level = level;
         this.attack = attack;
         this.max_health_points = max_health_points;
+        this.speed = speed;
         this.mana = mana;
+        this.max_mana = max_mana;
         this.resistance = resistance;
         this.max_resistance = max_resistance;
 
     }
 
     public Character(String name) {
-        this(name, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     @Override
     public String toString() {
-        return String.format("Имя: %s\nУровень: %d\nОпыт: %d\nНаносимый урон: %d\nЗдоровье: %d\nМана: %d\n",
-                name, level, experience_points, attack, health_points, mana);
+        return String.format(
+                "Имя: %s\nУровень: %d\nОпыт: %d\nНаносимый урон: %d\nЗдоровье: %d\nМана: %d\nСкорость: %d\n",
+                name, level, experience_points, attack, health_points, mana, speed);
     }
 
     @Override
