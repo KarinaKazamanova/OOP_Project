@@ -7,12 +7,15 @@ public class Game {
         Elf mounk = new Elf("Mounk");
         mounk.attack(mounk, grog);
         grog.attack(grog, mounk);
+        mounk.speak();
+        grog.toString();
         System.out.println("Grog: " + grog.getHealthPoints());
         System.out.println("Mounk: " + mounk.getHealthPoints());
         mounk.attack(mounk, grog);
         grog.attack(grog, mounk);
         System.out.println("Grog: " + grog.getHealthPoints());
         System.out.println("Mounk: " + mounk.getHealthPoints());
+        grog.toString();
     }
 
 }

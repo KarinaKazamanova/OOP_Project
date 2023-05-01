@@ -5,7 +5,7 @@ import java.util.Random;
 public class Elf extends Character {
 
     public Elf(String name) {
-        super(name, 15, 0, 1, 4);
+        super(name, 120, 0, 1, 6, 120, 40, 4, 4, 5, 5);
 
     }
 
@@ -35,9 +35,4 @@ public class Elf extends Character {
 
     }
 
-    @Override
-    public String toString() {
-        return String.format("Имя: %s\nУровень: %d\nОпыт: %d\nЗдоровье: %d\nНаносимый урон: %d\n",
-                name, level, experience_points, health_points, attack);
-    }
 }

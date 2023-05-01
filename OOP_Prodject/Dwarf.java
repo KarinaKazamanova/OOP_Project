@@ -6,7 +6,7 @@ public class Dwarf extends Character {
 
     public Dwarf(String name) {
         // Необходимо установить стартовые характеристики
-        super(name, 10, 0, 1, 5);
+        super(name, 80, 0, 1, 13, 80, 20, 6, 6, 3, 3);
 
     }
 
@@ -35,10 +35,4 @@ public class Dwarf extends Character {
 
     }
 
-    @Override
-
-    public String toString() {
-        return String.format("Имя: %s\nУровень: %d\nОпыт: %d\nЗдоровье: %d\nНаносимый урон: %d\n",
-                name, level, experience_points, health_points, attack);
-    }
 }
