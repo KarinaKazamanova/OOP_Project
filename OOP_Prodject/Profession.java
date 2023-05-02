@@ -1,20 +1,20 @@
 package OOP_Prodject;
 
 public class Profession {
-    // protected String profession;
+    protected String profession;
     protected Integer health_modifier;
     protected Integer attack_modifier;
     protected Integer speed_modifier;
     protected Integer mana_modifier;
     protected Integer resist_modifier;
 
-    // public String getProfession() {
-    // return profession;
-    // }
+    public String getProfession() {
+        return profession;
+    }
 
-    // public void setProfession(String prof) {
-    // this.profession = prof;
-    // }
+    public void setProfession(String prof) {
+        this.profession = prof;
+    }
 
     public Integer getHealthModifier() {
         return health_modifier;
@@ -56,7 +56,7 @@ public class Profession {
         this.resist_modifier = r_m;
     }
 
-    public Profession(/* String prof, */ Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
+    public Profession(String prof, Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
             Integer resist_m) {
         // this.profession = prof;
         this.health_modifier = health_m;
@@ -66,8 +66,12 @@ public class Profession {
         this.resist_modifier = resist_m;
     }
 
-    public Profession(/* String prof */) {
-        this(/* prof, */ 0, 0, 0, 0, 0);
+    public Profession(String prof) {
+        this(prof, 0, 0, 0, 0, 0);
+    }
+
+    public void professionModifier(Character c) {
+        c.setProfession(this.profession);
     }
 
     public void healthModifier(Character c) {
@@ -103,6 +107,7 @@ public class Profession {
     }
 
     public void modify(Character c) {
+        this.professionModifier(c);
         this.healthModifier(c);
         this.maxHealthModifier(c);
         this.attackModifier(c);

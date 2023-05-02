@@ -1,7 +1,10 @@
 package OOP_Prodject;
 
-public class Character implements Attackable, Healable, Speakable {
+import java.util.List;
+
+public class Character implements Attackable, Healable, Speakable, Comparable<Character> {
     protected String name;
+    protected String profession;
     protected Integer health_points;
     protected Integer experience_points;
     protected Integer level;
@@ -12,6 +15,7 @@ public class Character implements Attackable, Healable, Speakable {
     protected Integer max_mana;
     protected Integer resistance;
     protected Integer max_resistance;
+    private List<Character> party;
 
     public String getName() {
         return name;
@@ -19,6 +23,14 @@ public class Character implements Attackable, Healable, Speakable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String prof) {
+        this.profession = prof;
     }
 
     public Integer getHealthPoints() {
@@ -94,10 +106,11 @@ public class Character implements Attackable, Healable, Speakable {
         this.max_resistance = max_resistance;
     }
 
-    public Character(String name, Integer health_points, Integer exp, Integer level, Integer attack,
+    public Character(String name, String prof, Integer health_points, Integer exp, Integer level, Integer attack,
             Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance,
             Integer max_resistance) {
         this.name = name;
+        this.profession = prof;
         this.health_points = health_points;
         this.experience_points = exp;
         this.level = level;
@@ -112,7 +125,7 @@ public class Character implements Attackable, Healable, Speakable {
     }
 
     public Character(String name) {
-        this(name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     @Override
@@ -158,6 +171,14 @@ public class Character implements Attackable, Healable, Speakable {
         // Надо прописать, что он говорит ,но можно оставить и пустым, а для
         // конкретного класса персов прописать свое
         throw new UnsupportedOperationException("Unimplemented method 'speak'");
+    }
+
+    @Override
+    // Надо прописать критерий сравнения
+
+    public int compareTo(Character c) {
+
+        return speed.compareTo(c.speed);
     }
 
 }
