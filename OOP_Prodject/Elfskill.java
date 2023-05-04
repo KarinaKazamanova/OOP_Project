@@ -1,5 +1,5 @@
 package OOP_Prodject;
 
-public interface Elfskill extends Skill {
-
+public class Elfskill extends Skill {
+    public void doubleattack(Character d_c);
 }

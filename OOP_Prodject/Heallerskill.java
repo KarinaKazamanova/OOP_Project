@@ -1,5 +1,5 @@
 package OOP_Prodject;
 
-public interface Heallerskillable {
+public class Heallerskill extends Skill {
     public void regenerate(Character c);
 }
