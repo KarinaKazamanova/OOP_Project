@@ -1,6 +1,6 @@
 package OOP_Prodject;
 
-public class Healer extends Profession {
+public class Healer extends Profession implements Heallerskillable {
     protected Integer heal;
 
     public Healer(Character c, String prof) {
@@ -36,6 +36,7 @@ public class Healer extends Profession {
 
     }
 
+    @Override
     public void regenerate(Character c) {
         Integer total_health = c.getHealthPoints() + heal;
         if (total_health >= c.getMaxHealthPoints()) {

@@ -36,10 +36,10 @@ public class Elf extends Character implements Elfskillable {
     }
 
     @Override
-    public void doubleattack(Character a_c, Character d_c) {
-        attack(a_c, d_c);
-        attack(a_c, d_c);
-        a_c.setMana(a_c.getMana() - 3);
+    public void doubleattack(Character d_c) {
+        attack(d_c);
+        attack(d_c);
+        this.setMana(this.getMana() - 3);
     }
 
 }

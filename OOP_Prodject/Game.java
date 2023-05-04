@@ -5,28 +5,20 @@ public class Game {
 
         Elf grog = new Elf("Grog");
         Elf mounk = new Elf("Mounk");
+        Elf trial = new Elf("Trial");
 
         Tank t = new Tank("Tank");
         t.modify(mounk);
         Killer k = new Killer("Killer");
+        Healer h = new Healer(trial, "Healer");
 
         System.out.println("Elf-Tank\n" + mounk.toString());
         k.modify(grog);
-        System.out.println("Elf-Killer\n" + grog.toString());
+        h.modify(trial);
 
-        Party<Character> party = new Party<>();
-        party.addCharacter(grog);
-        party.addCharacter(mounk);
-        System.out.println(party.size());
-        for (Character c : party) {
-            System.out.println(c.getSpeed());
+        grog.doubleattack(mounk);
 
-        }
-        party.sort();
-        for (Character c : party) {
-            System.out.println(c.getSpeed());
-
-        }
+        System.out.println(mounk.getHealthPoints());
 
     }
 

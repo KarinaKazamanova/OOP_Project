@@ -58,7 +58,7 @@ public class Profession {
 
     public Profession(String prof, Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
             Integer resist_m) {
-        // this.profession = prof;
+        this.profession = prof;
         this.health_modifier = health_m;
         this.attack_modifier = attack_m;
         this.speed_modifier = speed_m;
@@ -102,10 +102,6 @@ public class Profession {
         c.setResist(c.getResist() + this.resist_modifier);
     }
 
-    public void maxResistanceModifier(Character c) {
-        c.setMaxResist(c.getMaxResist() + this.resist_modifier);
-    }
-
     public void modify(Character c) {
         this.professionModifier(c);
         this.healthModifier(c);
@@ -115,7 +111,7 @@ public class Profession {
         this.manaModifier(c);
         this.maxManaModifier(c);
         this.resistanceModifier(c);
-        this.maxResistanceModifier(c);
+
     }
 
 }

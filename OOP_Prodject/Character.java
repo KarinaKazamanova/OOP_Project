@@ -16,6 +16,7 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     protected Integer mana;
     protected Integer max_mana;
     protected Integer resistance;
+    protected Integer regeneration;
 
     private List<Character> party;
 
@@ -100,8 +101,17 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         this.resistance = resistance;
     }
 
+    public Integer getRegeneration() {
+        return regeneration;
+    }
+
+    public void setRegeneration(Integer regineration) {
+        this.regeneration = regineration;
+    }
+
     public Character(String name, String prof, Integer health_points, Integer exp, Integer level, Integer attack,
-            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance) {
+            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance,
+            Integer regeneration) {
         this.name = name;
         this.profession = prof;
         this.health_points = health_points;
@@ -113,11 +123,12 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         this.mana = mana;
         this.max_mana = max_mana;
         this.resistance = resistance;
+        this.regeneration = regeneration;
 
     }
 
     public Character(String name) {
-        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     @Override
@@ -128,10 +139,10 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     }
 
     @Override
-    public void attack(Character a_c, Character d_c) {
-        Integer damage = a_c.getAttack();
+    public void attack(Character d_c) {
+        Integer damage = this.getAttack();
         Integer resist = d_c.getResist();
-        Integer speed_a = a_c.getSpeed();
+        Integer speed_a = this.getSpeed();
         Integer speed_c = d_c.getSpeed();
         Double probability = 0.5 + (speed_a - speed_c) / (speed_a * 2);
         Random r = new Random();
@@ -143,7 +154,9 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
 
         if (damage > 0) {
             d_c.setHealthPoints(d_c.getHealthPoints() - damage);
-        } else{  Miss.miss();}
+        } else {
+            Miss.miss();
+        }
     }
 
     @Override
