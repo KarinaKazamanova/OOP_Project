@@ -1,6 +1,8 @@
 package OOP_Prodject;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Character implements Attackable, Healable, Speakable, Comparable<Character> {
     protected String name;
@@ -14,7 +16,7 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     protected Integer mana;
     protected Integer max_mana;
     protected Integer resistance;
-    protected Integer max_resistance;
+
     private List<Character> party;
 
     public String getName() {
@@ -98,17 +100,8 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         this.resistance = resistance;
     }
 
-    public Integer getMaxResist() {
-        return max_resistance;
-    }
-
-    public void setMaxResist(Integer max_resistance) {
-        this.max_resistance = max_resistance;
-    }
-
     public Character(String name, String prof, Integer health_points, Integer exp, Integer level, Integer attack,
-            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance,
-            Integer max_resistance) {
+            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance) {
         this.name = name;
         this.profession = prof;
         this.health_points = health_points;
@@ -120,12 +113,11 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         this.mana = mana;
         this.max_mana = max_mana;
         this.resistance = resistance;
-        this.max_resistance = max_resistance;
 
     }
 
     public Character(String name) {
-        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     @Override
@@ -138,20 +130,20 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     @Override
     public void attack(Character a_c, Character d_c) {
         Integer damage = a_c.getAttack();
-        if (d_c.getResist() > 0) {
-            if (d_c.getResist() > a_c.getAttack()) {
-                d_c.setResist(d_c.getResist() - damage);
-            } else {
-                d_c.setHealthPoints(d_c.getResist() + d_c.getResist() - damage);
-                d_c.setResist(0);
-            }
-            if (a_c.getAttack() < d_c.getHealthPoints()) {
-                d_c.setHealthPoints(d_c.getHealthPoints() - damage);
-            } else {
-                d_c.setHealthPoints(0);
-            }
-
+        Integer resist = d_c.getResist();
+        Integer speed_a = a_c.getSpeed();
+        Integer speed_c = d_c.getSpeed();
+        Double probability = 0.5 + (speed_a - speed_c) / (speed_a * 2);
+        Random r = new Random();
+        int test = r.nextInt(1, 101);
+        if (test <= probability * 100) {
+            damage *= 2;
         }
+        damage = damage - resist;
+
+        if (damage > 0) {
+            d_c.setHealthPoints(d_c.getHealthPoints() - damage);
+        } else{  Miss.miss();}
     }
 
     @Override
@@ -159,11 +151,6 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         {
             h_c.setHealthPoints(h_c.getHealthPoints() + healling_points);
         }
-    }
-
-    @Override
-    public void resistRecover(Character h_c) {
-        h_c.setResist(h_c.getMaxResist());
     }
 
     @Override

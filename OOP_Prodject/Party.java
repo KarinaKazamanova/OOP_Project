@@ -1,10 +1,11 @@
 package OOP_Prodject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Party<T extends Character> implements Iterable<T> {
+public class Party<T extends Character> implements Iterable<T>, Sortable {
     private ArrayList<T> party;
 
     public Party() {
@@ -33,6 +34,11 @@ public class Party<T extends Character> implements Iterable<T> {
 
     public int size() {
         return party.size();
+    }
+
+    @Override
+    public <T> void sort() {
+        Collections.sort(party);
     }
 
 }
