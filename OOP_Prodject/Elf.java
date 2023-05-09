@@ -2,10 +2,10 @@ package OOP_Prodject;
 
 import java.util.Random;
 
-public class Elf extends Character implements Elfskillable {
+public class Elf extends Character {
 
     public Elf(String name) {
-        super(name, "", 120, 0, 1, 6, 120, 40, 5, 5, 4, 0);
+        super(name, "", 120, 0, 1, 6, 120, 40, 5, 5, 4);
 
     }
 
@@ -33,13 +33,6 @@ public class Elf extends Character implements Elfskillable {
                 break;
         }
 
-    }
-
-    @Override
-    public void doubleattack(Character d_c) {
-        attack(d_c);
-        attack(d_c);
-        this.setMana(this.getMana() - 3);
     }
 
 }
