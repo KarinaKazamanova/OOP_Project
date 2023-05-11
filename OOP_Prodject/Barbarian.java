@@ -1,4 +1,4 @@
-package OOP_Prodject;
+package OOP_Kazamanova.OOP_Prodject;
 
 public class Barbarian extends Profession {
     public Barbarian(String prof) {
