@@ -35,7 +35,7 @@ public class View<T extends Character> {
 
                 race = "Elf";
                 flag = false;
-                break;
+
             }
 
             else if (race_number == 2) {
@@ -56,7 +56,7 @@ public class View<T extends Character> {
             }
 
         }
-        // scan.close();
+        scan.close();
         return race;
 
     }
