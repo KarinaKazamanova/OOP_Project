@@ -4,9 +4,6 @@ import java.rmi.server.SocketSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Elfskill;
-import Heallerskill;
-
 public class Game {
     public static void main(String[] args) {
 
@@ -20,6 +17,7 @@ public class Game {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
 
     }
 
