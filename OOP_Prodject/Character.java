@@ -1,7 +1,5 @@
 package OOP_Prodject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Character implements Attackable, Healable, Speakable, Comparable<Character> {
