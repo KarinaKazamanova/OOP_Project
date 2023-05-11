@@ -56,7 +56,7 @@ public class View<T extends Character> {
             }
 
         }
-        scan.close();
+        // scan.close();
         return race;
 
     }
