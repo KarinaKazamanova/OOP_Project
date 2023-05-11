@@ -9,15 +9,6 @@ public class Profession {
     protected Integer speed_modifier;
     protected Integer mana_modifier;
     protected Integer resist_modifier;
-    protected String skill;
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
 
     public String getProfession() {
         return profession;
@@ -68,18 +59,18 @@ public class Profession {
     }
 
     public Profession(String prof, Integer health_m, Integer attack_m, Integer speed_m, Integer mana_m,
-            Integer resist_m, String skill) {
+            Integer resist_m) {
         this.profession = prof;
         this.health_modifier = health_m;
         this.attack_modifier = attack_m;
         this.speed_modifier = speed_m;
         this.mana_modifier = mana_m;
         this.resist_modifier = resist_m;
-        this.skill = skill;
+
     }
 
     public Profession(String prof) {
-        this(prof, 0, 0, 0, 0, 0, null);
+        this(prof, 0, 0, 0, 0, 0);
     }
 
     public void professionModifier(Character c) {
@@ -114,12 +105,6 @@ public class Profession {
         c.setResist(c.getResist() + this.resist_modifier);
     }
 
-    public void addProfSkill(Character c) {
-        List<String> skills = c.getSkills();
-        skills.add(this.skill);
-        c.setSkills(skills);
-    }
-
     public void modify(Character c) {
         this.professionModifier(c);
         this.healthModifier(c);
@@ -129,7 +114,6 @@ public class Profession {
         this.manaModifier(c);
         this.maxManaModifier(c);
         this.resistanceModifier(c);
-        this.addProfSkill(c);
 
     }
 

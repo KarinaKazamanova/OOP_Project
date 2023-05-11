@@ -1,6 +1,6 @@
 package OOP_Prodject;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +17,15 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     protected Integer max_mana;
     protected Integer resistance;
 
-    private List<Character> party;
+    protected ArrayList<String> skills;
+
+    public ArrayList<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(ArrayList<String> skills) {
+        this.skills = skills;
+    }
 
     public String getName() {
         return name;
@@ -109,7 +117,8 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
     // }
 
     public Character(String name, String prof, Integer health_points, Integer exp, Integer level, Integer attack,
-            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance) {
+            Integer max_health_points, Integer speed, Integer mana, Integer max_mana, Integer resistance,
+            String skills) {
         this.name = name;
         this.profession = prof;
         this.health_points = health_points;
@@ -121,11 +130,12 @@ public class Character implements Attackable, Healable, Speakable, Comparable<Ch
         this.mana = mana;
         this.max_mana = max_mana;
         this.resistance = resistance;
+        this.skills.add(skills);
 
     }
 
     public Character(String name) {
-        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(name, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, "");
     }
 
     @Override

@@ -6,7 +6,7 @@ public class Dwarf extends Character {
 
     public Dwarf(String name) {
         // Необходимо установить стартовые характеристики
-        super(name, "", 80, 0, 1, 13, 80, 20, 3, 3, 6);
+        super(name, "", 80, 0, 1, 13, 80, 20, 3, 3, 6, "dwarfskill");
 
     }
 

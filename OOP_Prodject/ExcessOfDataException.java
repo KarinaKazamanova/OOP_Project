@@ -1,5 +1,8 @@
 package OOP_Prodject;
 
-public class ExcessOfDataException {
+public class ExcessOfDataException extends Exception {
+    public ExcessOfDataException() {
+        super("Введено слишком много данных");
 
+    }
 }
