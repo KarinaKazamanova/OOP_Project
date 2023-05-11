@@ -1,4 +1,4 @@
-package OOP_Kazamanova.OOP_Prodject;
+package OOP_Prodject;
 
 public class Human extends Character {
     public Human(String name) {

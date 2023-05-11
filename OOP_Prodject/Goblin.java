@@ -1,4 +1,4 @@
-package OOP_Kazamanova.OOP_Prodject;
+package OOP_Prodject;
 
 public class Goblin extends Character {
 

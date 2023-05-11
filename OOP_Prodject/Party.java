@@ -1,4 +1,4 @@
-package OOP_Kazamanova.OOP_Prodject;
+package OOP_Prodject;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,7 +1,7 @@
 
 import java.util.List;
 
-import OOP_Kazamanova.OOP_Prodject.Character;
+import OOP_Prodject.Character;
 
 public class Skill {
     protected List<Skill> skills;
